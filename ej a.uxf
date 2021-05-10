@@ -1,0 +1,32 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>0</x><y>0</y><w>210</w><h>190</h></coordinates><panel_attributes>Operario
+--
+--
++ apretarBoton(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>340</x><y>0</y><w>210</w><h>190</h></coordinates><panel_attributes>Fabrica
+--
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>340</x><y>260</y><w>210</w><h>120</h></coordinates><panel_attributes>Maquina
+--
+- boton: String
+--
++ iniciarProceso(): Molde
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>340</x><y>430</y><w>210</w><h>110</h></coordinates><panel_attributes>@Molde
+--
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>440</x><y>180</y><w>80</w><h>100</h></coordinates><panel_attributes>lt=&lt;-
+m1=1
+- maquina</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>70</y><w>160</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
+m1=*
+- operario</panel_attributes><additional_attributes>10;20;140;20</additional_attributes></element><element><id>Relation</id><coordinates><x>430</x><y>370</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;-
+m1=*</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>200</x><y>620</y><w>210</w><h>80</h></coordinates><panel_attributes>MoldeAvion
+--
+--
++ crearProducto(): Producto
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>470</x><y>620</y><w>210</w><h>80</h></coordinates><panel_attributes>MoldeAuto
+--
+--
++ crearProducto(): Producto</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>670</x><y>230</y><w>210</w><h>110</h></coordinates><panel_attributes>@Producto
+--
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>310</x><y>530</y><w>290</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>140;10;140;60;270;60;270;90;270;60;10;60;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>100</x><y>180</y><w>260</w><h>150</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>240;130;10;130;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>570</x><y>440</y><w>210</w><h>90</h></coordinates><panel_attributes>Auto
+--
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>800</x><y>440</y><w>210</w><h>90</h></coordinates><panel_attributes>Avion
+--
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>650</x><y>330</y><w>240</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>110;10;110;60;220;60;220;110;220;60;10;60;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>650</x><y>520</y><w>30</w><h>120</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>260</x><y>520</y><w>610</w><h>120</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>590;10;590;60;10;60;10;100</additional_attributes></element></diagram>

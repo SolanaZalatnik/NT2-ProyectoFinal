@@ -11,6 +11,7 @@ import Pelicula from './components/Pelicula.vue'*/
 import Juego from './components/Juego.vue'
 import Ranking from './components/Ranking.vue'
 import Home from './components/Home.vue'
+import Loguin from './components/Loguin.vue'
 
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
@@ -18,7 +19,8 @@ Vue.use(IconsPlugin)
 const routes = [
   {path:'/juego',component:Juego},
   {path:'/ranking',component:Ranking},
-  {path:'/home',component:Home}
+  {path:'/home',component:Home},
+  {path:'/loguin',component:Loguin}
 ]
 import Router from 'vue-router'
 Vue.use(Router) 

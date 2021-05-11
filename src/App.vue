@@ -1,3 +1,8 @@
+import { faUserSecret, faUser } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faUserSecret)
+library.add(faEye)
+
 <template>
   <div id="app">
     
@@ -12,7 +17,12 @@
               <router-link to="/home" class="nav-item nav-link" active-class="activate" exact>Home</router-link>
               <router-link to="/juego" class="nav-item nav-link" active-class="activate" exact>Juego</router-link>
               <router-link to="/ranking" class="nav-item nav-link" active-class="activate" exact>Ranking</router-link>
-              <router-link to="/loguin" class="nav-item nav-link" active-class="activate" exact ><i class="bi bi-person-circle"></i></router-link>
+              <router-link to="/loguin" class="nav-item nav-link" active-class="activate" exact>
+              <svg class="bi" width="32" height="32" fill="currentColor">
+  <use xlink:href="bootstrap-icons.svg#heart-fill"/>
+</svg>
+</router-link>
+              
             </div>
           </div>
         </nav>

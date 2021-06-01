@@ -5,8 +5,11 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    msgHome: 'Home',
+    msgUser: 'Pepe Perez'
   },
   mutations: {
+
   },
   actions: {
   },

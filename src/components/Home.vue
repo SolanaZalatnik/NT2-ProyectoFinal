@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h1>Home</h1>
+      <h1>{{$store.state.msgHome}}</h1>
       <button type="button" class="btn btn-dark" @click="empezarJuego()">Empezar juego</button>
   </div>
 </template>

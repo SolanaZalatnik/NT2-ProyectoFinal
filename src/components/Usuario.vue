@@ -50,7 +50,7 @@ export default {
     },
     async deleteUsuario(){
       console.log('entro a delete')
-      const respuesta2 = await axios.post(this.url + '/1')
+      const respuesta2 = await axios.delete(this.url + '/1')
       console.log(respuesta2)
     }
       

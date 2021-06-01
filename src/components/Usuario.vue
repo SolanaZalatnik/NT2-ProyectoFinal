@@ -49,9 +49,17 @@ export default {
       console.log(respuesta)
     },
     async deleteUsuario(){
-      console.log('entro a delete')
-      const respuesta2 = await axios.delete(this.url + '/1')
-      console.log(respuesta2)
+      
+      const userId = prompt('Ingresá el ID del usuario a eliminar')
+
+      try {
+        const respuesta2 = await axios.delete(this.url + '/' + userId)
+        console.log(respuesta2)
+        alert('borrado exitoso')
+
+      } catch (e) {
+        alert(e)
+      }
     }
       
   }

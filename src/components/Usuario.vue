@@ -39,8 +39,11 @@ export default {
       }
     },  
     async saveUsuario(){
+
+      let usuarioName = prompt('Ingresá el nombre de un usuario')
+
       const usuario = {
-        name:'Pepe'
+        name: usuarioName
       }
       const respuesta = await axios.post(this.url, usuario)
       console.log(respuesta)

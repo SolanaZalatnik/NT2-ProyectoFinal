@@ -5,7 +5,6 @@
     </div>
     
     <hr />
-        <!--<Juego juego="primer juego">-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">

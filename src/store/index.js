@@ -9,10 +9,11 @@ export default new Vuex.Store({
     msgUser: 'Pepe Perez'
   },
   mutations: {
-
   },
   actions: {
   },
   modules: {
+  },
+  getters: {
   }
 })

@@ -5,7 +5,7 @@
 
           <ol>
               <li v-for="usuario in usuarios" :key="usuario.id">
-                  {{usuario.name}} con {{usuario.points}} puntos.
+                  &#x1F947; {{usuario.name}} con {{usuario.points}} puntos.
               </li>
           </ol>
   </div>

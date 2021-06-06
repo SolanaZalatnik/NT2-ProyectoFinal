@@ -1,6 +1,7 @@
 import Vue from 'vue'
+import Vuex from "vuex";
 import App from './App.vue'
-import index from './store/index.js'
+import store from './store/store'
 
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
@@ -12,6 +13,9 @@ import Ranking from './components/Ranking.vue'
 import Home from './components/Home.vue'
 import Login from './components/Login.vue'
 import Usuario from './components/Usuario.vue'
+
+
+Vue.prototype.$store = store;
 
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
@@ -31,10 +35,12 @@ const router = new Router({
   mode: 'hash'
 })
 
+Vue.use(Vuex);
+
 Vue.config.productionTip = false
 
 new Vue({
-  index,
   router,
+  store,
   render: h => h(App),
 }).$mount('#app')

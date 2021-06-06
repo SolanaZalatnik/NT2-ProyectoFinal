@@ -8,7 +8,7 @@
     <samp>{{usuarios}}</samp>
     -->
     <ul>
-      <li v-for="usuario in usuarios" :key="usuario.id">{{usuario.id + ' ' + usuario.name}}</li>
+      <li v-for="usuario in usuarios" :key="usuario.id">{{usuario.id + ' ' + usuario.name + ' ' + usuario.pass}}</li>
     </ul>
   </div>
 </template>
@@ -33,6 +33,7 @@ export default {
       try{
         const response = this.usuarios = await axios.get(this.url)
         this.usuarios = response.data
+        console.log(response.data)
       //devuelve una promesa
       }catch(error){
         console.log(error)
@@ -41,12 +42,16 @@ export default {
     async saveUsuario(){
 
       let usuarioName = prompt('Ingresá el nombre de un usuario')
-
-      const usuario = {
-        name: usuarioName
+      let usuarioPass = prompt ('Ingresá contraseña')
+      if(usuarioName !== null && usuarioPass !== null) {
+        const usuario = {
+          name: usuarioName,
+          pass: usuarioPass
+        }
+        const respuesta = await axios.post(this.url, usuario)
+        console.log(respuesta)
       }
-      const respuesta = await axios.post(this.url, usuario)
-      console.log(respuesta)
+      
     },
     async deleteUsuario(){
       

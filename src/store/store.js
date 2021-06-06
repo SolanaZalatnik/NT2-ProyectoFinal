@@ -7,7 +7,8 @@ export default new Vuex.Store({
   state: {
     msgHome: 'Home',
     username: '',
-    password: ''
+    password: '',
+    categoria: ''
   },
   mutations: {
   },
@@ -19,6 +20,9 @@ export default new Vuex.Store({
       console.log(state.username)
       console.log(state.password)
     },
+    categoriaSeleccionada(state, cat){
+      state.categoria = cat['ca']
+    }
   },
   modules: {
   },

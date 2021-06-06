@@ -3,7 +3,7 @@
     
     <header>
         <div class="logo">
-            <h1>Proyecto final</h1>
+            <img src="../public/iconoHeader.png" style="width:60px; height:60px;">
         </div>
         <div class="nav">
             <ul class="nav-link">
@@ -70,12 +70,12 @@ header {
 }
 
 .logo {
-  cursor: pointer;
   color: #eccc68;
   margin-right: auto;
 }
 
 .nav-link li {
+  cursor: pointer;
   display: inline-block;
   padding: 0px 20px;
 }

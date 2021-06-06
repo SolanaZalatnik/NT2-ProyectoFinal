@@ -22,7 +22,10 @@ export default {
   },
   methods:{
     empezarJuego(categoria){
-      let ruta = '/juego/' + categoria
+      //const ruta = '/juego/' + categoria
+      const cat = {ca: categoria}
+      this.$store.dispatch('categoriaSeleccionada', cat)
+      const ruta = '/juego2'
       this.$router.push(ruta)
     }
   },

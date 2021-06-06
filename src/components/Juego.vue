@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h1>Juego</h1>
+    <h1>Seleccione la categoría</h1>
     <div>
       <b-dropdown text="Seleccione categoría">
-        <b-dropdown-item v-for="categoria in categorias" :key="categoria.id">{{categoria.name}}</b-dropdown-item>
+        <b-dropdown-item @click="empezarJuego(categoria.name)" v-for="categoria in categorias" :key="categoria.id">{{categoria.name}}</b-dropdown-item>
       </b-dropdown>
     </div>
   </div>
@@ -21,8 +21,8 @@ export default {
     }
   },
   methods:{
-    empezarJuego(){
-      let ruta = '/juego/Deportes'
+    empezarJuego(categoria){
+      let ruta = '/juego/' + categoria
       this.$router.push(ruta)
     }
   },

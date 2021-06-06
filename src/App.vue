@@ -13,6 +13,7 @@
               <router-link to="/ranking" class="nav-item nav-link" active-class="activate" exact>Ranking</router-link>
               <router-link to="/Login" class="nav-item nav-link" active-class="activate" exact>Login</router-link>
               <router-link to="/Usuario" class="nav-item nav-link" active-class="activate" exact>Usuario</router-link>
+              <router-link to="/juego2" class="nav-item nav-link" active-class="activate" exact>Juego2</router-link>
               <!--
               <router-link to="/login" class="nav-item nav-link" active-class="activate" exact><i class="bi bi-person-circle"></i></router-link>
               -->

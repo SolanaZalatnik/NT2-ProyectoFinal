@@ -13,7 +13,7 @@ import Ranking from './components/Ranking.vue'
 import Home from './components/Home.vue'
 import Login from './components/Login.vue'
 import Usuario from './components/Usuario.vue'
-
+import Juego2 from './components/Usuario.vue'
 
 Vue.prototype.$store = store;
 
@@ -25,7 +25,8 @@ const routes = [
   {path:'/ranking',component:Ranking},
   {path:'/home',component:Home},
   {path:'/login',component:Login},
-  {path:'/usuario',component:Usuario}
+  {path:'/usuario',component:Usuario},
+  {path:'/juego2',component:Usuario}
 ]
 
 import Router from 'vue-router'

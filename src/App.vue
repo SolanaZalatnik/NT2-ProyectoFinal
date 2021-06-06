@@ -1,30 +1,22 @@
 <template>
   <div id="app">
     
-    <div id="banner">
-    </div>
-    
-    <hr />
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <router-link to="/home" class="nav-item nav-link" active-class="activate" exact>Home</router-link>
-              <router-link to="/juego" class="nav-item nav-link" active-class="activate" exact>Juego</router-link>
-              <router-link to="/ranking" class="nav-item nav-link" active-class="activate" exact>Ranking</router-link>
-              <router-link to="/Login" class="nav-item nav-link" active-class="activate" exact>Login</router-link>
-              <router-link to="/Usuario" class="nav-item nav-link" active-class="activate" exact>Usuario</router-link>
-              <router-link to="/juego2" class="nav-item nav-link" active-class="activate" exact>Juego2</router-link>
-              <!--
-              <router-link to="/login" class="nav-item nav-link" active-class="activate" exact><i class="bi bi-person-circle"></i></router-link>
-              -->
-              <!--
-              <router-link to="/login" class="nav-item nav-link" active-class="activate" exact><img src="./assets/logo.png"/></router-link>
-              -->
-            </div>
-          </div>
-        </nav>
-      <hr>
-      <router-view></router-view>
+    <header>
+        <div class="logo">
+            <h1>Proyecto final</h1>
+        </div>
+        <div class="nav">
+            <ul class="nav-link">
+                <router-link to="/Home" tag="li" active-class="active" exact>Home</router-link>
+                <router-link to="/Login" tag="li" active-class="active" exact>Login</router-link>
+                <router-link to="/Ranking" tag="li" active-class="active" exact>Ranking</router-link>
+                <router-link to="/Usuario" tag="li" active-class="active" exact>Usuario</router-link>
+                <router-link to="/Juego2" tag="li" active-class="active" exact>Juego2</router-link>
+            </ul>
+        </div>
+    </header>
+
+    <router-view></router-view>
   </div>
 </template>
 
@@ -39,15 +31,61 @@ export default {
 </script>
 
 <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Recursive&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #eccc68;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  background-color: #eccc68;
+  font-family: "Recursive", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
 }
-#banner{
-  background-image: url('./assets/bannerPreguntados.jpg');
-  padding-top: 100px;
+
+li, a {
+  font-family: system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #8B4513;
+  text-decoration: none;
 }
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #2f3542;
+  align-items: center;
+  padding: 25px 10%;
+}
+
+.logo {
+  cursor: pointer;
+  color: #eccc68;
+  margin-right: auto;
+}
+
+.nav-link li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.nav-link li a {
+  transition: all .5 ease;
+}
+
+.nav-link li a:hover {
+  color: #f1f2f6;
+}
+
 </style>

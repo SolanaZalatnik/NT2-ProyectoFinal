@@ -26,7 +26,7 @@ const routes = [
   {path:'/home',component:Home},
   {path:'/login',component:Login},
   {path:'/usuario',component:Usuario},
-  {path:'/juego2',component:Usuario}
+  {path:'/juego2',component:Juego2}
 ]
 
 import Router from 'vue-router'

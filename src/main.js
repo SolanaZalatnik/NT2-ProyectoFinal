@@ -13,7 +13,7 @@ import Ranking from './components/Ranking.vue'
 import Home from './components/Home.vue'
 import Login from './components/Login.vue'
 import Usuario from './components/Usuario.vue'
-import Juego2 from './components/Usuario.vue'
+import Juego2 from './components/Juego2.vue'
 
 Vue.prototype.$store = store;
 

@@ -13,7 +13,7 @@
       </div>
     </div>
 
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="max-width: 500px; width: auto; margin: 20px; margin-left: 700px">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="max-width:500px; width: auto; margin: auto auto">
     <div class="row mx-auto p-2">
       <button 
         type="button"

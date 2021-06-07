@@ -14,11 +14,13 @@ import Home from './components/Home.vue'
 import Login from './components/Login.vue'
 import Usuario from './components/Usuario.vue'
 import Juego2 from './components/Juego2.vue'
+import CircularCountDownTimer from './components/CircularCountDownTimer.vue'
 
 Vue.prototype.$store = store;
 
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
+Vue.component("circular-count-down-timer", CircularCountDownTimer);
 
 const routes = [
   {path:'/juego',component:Juego},

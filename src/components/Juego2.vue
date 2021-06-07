@@ -1,5 +1,10 @@
 <template>
   <div>
+    <circular-count-down-timer
+        :initial-value="10"
+        @finish="finished"
+        @update="updated"
+    ></circular-count-down-timer>
     <h1>Pregunta {{contPreguntas}}</h1>
     <br>
     <div class="card text-white bg-dark mb-3" style="max-width:319px; width: auto; margin: auto auto">
@@ -25,8 +30,12 @@
 <script>
 
 import axios from 'axios'
+import CircularCountDownTimer from "./CircularCountDownTimer"
 
 export default {
+  components:{
+     CircularCountDownTimer
+  },
   data(){
     return {
       url: 'https://60b95da180400f00177b66e2.mockapi.io/preguntas',
@@ -34,13 +43,28 @@ export default {
       pregRandom: [],
       preguntaSeleccionada: [],
       contPreguntas: 1,
-      categoriaSeleccionada: ''
+      categoriaSeleccionada: '',
+       some_variable: false
     }
   },
   methods:{
     incrementar(){
       this.contPreguntas++
+    },
+    updateTime(){
+      this.$refs.countDown.updateTime(-10)
+    },
+    finished: () => {
+      setTimeout(function() { alert('termino el tiempo'); }, 1000);
+    },
+    updated: (status) => {
+       console.log(status)
     }
+  },
+  mounted(){
+    setTimeout(function(){
+      this.some_variable = true;
+      }.bind(this), 30000);
   },
   created: async function() {
 
@@ -73,7 +97,9 @@ export default {
     }
     console.log('ruta: ' + this.url + '/' + this.pregRandom.id) 
     console.log('preg sel: ' + this.preguntaSeleccionada.pregunta) 
-    }
+  }
+
+
 
 }
 </script>

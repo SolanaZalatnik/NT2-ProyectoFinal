@@ -8,7 +8,7 @@
         <div class="nav">
             <ul class="nav-link">
                 <router-link to="/Home" tag="li" active-class="active" exact>Home</router-link>
-                <router-link to="/Login" tag="li" active-class="active" exact>Login</router-link>
+                <router-link v-if="userLogeado !== ''" to="/Login" tag="li" active-class="active" exact>Login</router-link>
                 <router-link to="/Ranking" tag="li" active-class="active" exact>Ranking</router-link>
                 <router-link to="/Usuario" tag="li" active-class="active" exact>Usuario</router-link>
             </ul>
@@ -23,6 +23,11 @@
 //import HelloWorld from './components/HelloWorld'
 export default {
   name: "App",
+  data() {
+    return {
+      userLogeado: this.$store.dispatch('getUsuario')
+    }
+  },
   components:{
     //HelloWorld
   }

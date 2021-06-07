@@ -25,7 +25,8 @@ export default new Vuex.Store({
       state.categoria = cat['ca']
     },
     getUsuario(){
-      alert('Tu usuario es ' + this.state.username)
+      alert(this.state.username)
+      return this.state.username
     },
   },
   modules: {

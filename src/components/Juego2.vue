@@ -5,7 +5,7 @@
         @finish="finished"
         @update="updated"
     ></circular-count-down-timer>
-    <h1>Pregunta {{contPreguntas}}</h1>
+    <h1 style="color: black;">Pregunta {{contPreguntas}}</h1>
     <br>
     <div class="card text-white bg-dark mb-3" style="max-width:319px; width: auto; margin: auto auto">
       <div class="card-body">

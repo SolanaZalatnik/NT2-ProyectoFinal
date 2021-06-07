@@ -1,11 +1,12 @@
 <template>
   <div>
     <h1>Usuario</h1>
-    <button type="button" class="btn btn-dark" @click="getUsuarios()">Traer usuarios</button>
-    <button type="button" class="btn btn-dark" @click="saveUsuario()">Guardar usuario</button>
-    <button type="button" class="btn btn-dark" @click="deleteUsuario()">Eliminar usuario</button>
-    <button type="button" class="btn btn-dark" @click="mostrarUsuario()">Eliminar usuario</button>
-
+    <div>
+      <button type="button" style="margin: 5px;" class="btn btn-dark" @click="getUsuarios()">Traer usuarios</button>
+      <button type="button" style="margin: 5px;" class="btn btn-dark" @click="saveUsuario()">Guardar usuario</button>
+      <button type="button" style="margin: 5px;" class="btn btn-dark" @click="deleteUsuario()">Eliminar usuario</button>
+      <button type="button" style="margin: 5px;" class="btn btn-dark" @click="mostrarUsuario()">Ver mi usuario</button>
+    </div>
     <!--
     <samp>{{usuarios}}</samp>
     -->

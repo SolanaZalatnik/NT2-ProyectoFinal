@@ -18,10 +18,14 @@ export default new Vuex.Store({
       console.log(this.state.username)
       console.log(state.password)
     },
+
   },
   actions: {
     categoriaSeleccionada(state, cat){
       state.categoria = cat['ca']
+    },
+    getUsuario(){
+      alert('Tu usuario es ' + this.state.username)
     },
   },
   modules: {

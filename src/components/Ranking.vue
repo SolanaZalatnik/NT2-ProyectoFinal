@@ -2,7 +2,7 @@
   <div>
       <h1>Ranking</h1>
           <ol>
-              <li v-for="usuario in usuarios" :key="usuario.points" v-on="cambiarLogo(usuario)">
+              <li style="font-size: 30px; margin:30px" v-for="usuario in usuarios" :key="usuario.points" v-on="cambiarLogo(usuario)">
                   {{icono}} {{usuario.name}} con {{usuario.points}} puntos.
               </li>
           </ol>

@@ -60,6 +60,10 @@ li, a {
   text-decoration: none;
 }
 
+ol li{
+  list-style-type: none;
+}
+
 header {
   display: flex;
   justify-content: flex-end;

@@ -1,12 +1,12 @@
 <template>
   <div>
     <form class="form-signin" @submit.prevent="submitForm">
-      <h1 class="h3 mb-3 font-weight-normal">Inicie sesion</h1>
+      <h1 class="h3 mb-3 font-weight-normal">Inicie sesión</h1>
       <label for="nombre" class="sr-only">Nombre</label>
       <input type="text" v-model="nombre" id="nombre" class="form-control" placeholder="Nombre" required autofocus>
       <label for="password" class="sr-only">Contraseña</label>
       <input type="password" v-model="password" id="password" class="form-control" placeholder="Contraseña" required>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar sesion</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar sesión</button>
     </form>
   </div>
 </template>

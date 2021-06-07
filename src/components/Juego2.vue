@@ -42,14 +42,16 @@ export default {
       this.contPreguntas++
     }
   },
-  created: {
-    async function() {
+  created: async function() {
 
     //this.categoriaSeleccionada = $store.state.categoria
 
     //console.log('cate sel: ' + categoriaSeleccionada)
-    const cat = {ca: this.categoriaSeleccionada}
-    this.$store.dispatch('categoriaSeleccionada', cat)
+    //const cat = {ca: this.categoriaSeleccionada}
+    //this.categoriaSeleccionada = await this.$store.dispatch('categoriaSeleccionada', cat)
+    //this.categoriaSeleccionada = await this.$store.state.categoria
+    //console.log(this.categoriaSeleccionada)
+    
     try{
       //tiene que traer las pregs de la categoria seleccionada
         const response = this.preguntas = await axios.get(this.url)
@@ -72,7 +74,7 @@ export default {
     console.log('ruta: ' + this.url + '/' + this.pregRandom.id) 
     console.log('preg sel: ' + this.preguntaSeleccionada.pregunta) 
     }
-  }
+
 }
 </script>
 

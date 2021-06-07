@@ -11,7 +11,6 @@
                 <router-link to="/Login" tag="li" active-class="active" exact>Login</router-link>
                 <router-link to="/Ranking" tag="li" active-class="active" exact>Ranking</router-link>
                 <router-link to="/Usuario" tag="li" active-class="active" exact>Usuario</router-link>
-                <router-link to="/Juego2" tag="li" active-class="active" exact>Juego2</router-link>
             </ul>
         </div>
     </header>

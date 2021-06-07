@@ -1,10 +1,8 @@
 <template>
   <div>
       <h1>Ranking</h1>
-          <button type="button" class="btn btn-dark" @click="getUsuarios()">Traer usuarios</button>
-
           <ol>
-              <li v-for="usuario in usuarios" :key="usuario.id">
+              <li v-for="usuario in usuarios" :key="usuario.points">
                   &#x1F947; {{usuario.name}} con {{usuario.points}} puntos.
               </li>
           </ol>
@@ -22,20 +20,23 @@ export default {
       url: 'https://60b56f2efe923b0017c840c7.mockapi.io/usuarios',
     }
   },
-  methods: {
-    async incializar () {
-      await this.getUsuarios ()
-    },
-    async getUsuarios () {
-      try{
-        const response = this.usuarios = await axios.get(this.url)
-        this.usuarios = response.data.slice(0, 3)
-        console.log(response.data)
-      //devuelve una promesa
+  created: async function() {
+    try{
+        let usuariosObtenidos
+        const response = this.usuariosObtenidos = await axios.get(this.url)
+        usuariosObtenidos = response.data
+        usuariosObtenidos.sort(function (a, b) {
+          if(a.points > b.points) {return -1}
+          if(a.points < b.points) {return 1}
+          return 0
+        })
+        this.usuarios = usuariosObtenidos.slice(0,3)
       }catch(error){
         console.log(error)
       }
-    },
+  },
+  methods: {
+
   }
 }
 </script>

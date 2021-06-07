@@ -4,6 +4,8 @@
     <button type="button" class="btn btn-dark" @click="getUsuarios()">Traer usuarios</button>
     <button type="button" class="btn btn-dark" @click="saveUsuario()">Guardar usuario</button>
     <button type="button" class="btn btn-dark" @click="deleteUsuario()">Eliminar usuario</button>
+    <button type="button" class="btn btn-dark" @click="mostrarUsuario()">Eliminar usuario</button>
+
     <!--
     <samp>{{usuarios}}</samp>
     -->
@@ -65,6 +67,9 @@ export default {
       } catch (e) {
         alert(e)
       }
+    },
+    mostrarUsuario(){
+      this.$store.dispatch('getUsuario')
     }
       
   }

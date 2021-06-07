@@ -2,8 +2,8 @@
   <div>
       <h1>Ranking</h1>
           <ol>
-              <li v-for="usuario in usuarios" :key="usuario.points">
-                  &#x1F947; {{usuario.name}} con {{usuario.points}} puntos.
+              <li v-for="usuario in usuarios" :key="usuario.points" v-on="cambiarLogo(usuario)">
+                  {{icono}} {{usuario.name}} con {{usuario.points}} puntos.
               </li>
           </ol>
   </div>
@@ -18,6 +18,7 @@ export default {
     return {
       usuarios: [],
       url: 'https://60b56f2efe923b0017c840c7.mockapi.io/usuarios',
+      icono: []
     }
   },
   created: async function() {
@@ -36,7 +37,10 @@ export default {
       }
   },
   methods: {
-
+    cambiarLogo(usuario){
+      const iconos = ['🥇', '🥈', '🥉']
+      this.icono = iconos[this.usuarios.indexOf(usuario)]
+    }
   }
 }
 </script>

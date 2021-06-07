@@ -11,18 +11,18 @@ export default new Vuex.Store({
     categoria: ''
   },
   mutations: {
-  },
-  actions: {
     changeUserData (state, userObject) {
       state.username = userObject['nombre']
       state.password = userObject['password']
 
-      console.log(state.username)
+      console.log(this.state.username)
       console.log(state.password)
     },
+  },
+  actions: {
     categoriaSeleccionada(state, cat){
       state.categoria = cat['ca']
-    }
+    },
   },
   modules: {
   },

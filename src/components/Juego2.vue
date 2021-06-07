@@ -13,14 +13,23 @@
       </div>
     </div>
 
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="max-width:319px; width: auto; margin: auto auto">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="max-width: 500px; width: auto; margin: 20px; margin-left: 700px">
     <div class="row mx-auto p-2">
-      <button type="button" class="btn btn-dark">{{this.preguntaSeleccionada.respuesta1}}</button>
-      <button type="button" class="btn btn-dark">{{this.preguntaSeleccionada.respuesta2}}</button>
+      <button 
+        type="button"
+        style="margin-right: 30px"
+        v-bind:class="[notSelected]"
+        @click="changeColor">{{this.preguntaSeleccionada.respuesta1}}
+      </button>
+      <button 
+        type="button"
+        v-bind:class="[notSelected]"
+        @click="changeColor">{{this.preguntaSeleccionada.respuesta2}}
+      </button>
     </div>
     <br>
     <div class="row mx-auto p-2"> 
-      <button type="button" class="btn btn-dark">{{this.preguntaSeleccionada.respuesta3}}</button>
+      <button type="button" style="margin-right: 30px" class="btn btn-dark">{{this.preguntaSeleccionada.respuesta3}}</button>
       <button type="button" class="btn btn-dark">{{this.preguntaSeleccionada.respuesta4}}</button>
     </div>
   </div>
@@ -44,10 +53,16 @@ export default {
       preguntaSeleccionada: [],
       contPreguntas: 1,
       categoriaSeleccionada: '',
-       some_variable: false
+      some_variable: false,
+      notSelected : 'btn btn-dark',
+      isClicked: 'btn btn-success',
+
     }
   },
   methods:{
+    changeColor() {
+      this.notSelected = this.isClicked
+    },
     incrementar(){
       this.contPreguntas++
     },
@@ -84,8 +99,7 @@ export default {
         console.log(error)
     }
 
-    this.pregRandom = Math.floor(Math.random()*(9 - 1)) + 1 
-    //Math.floor(Math.random() * (max - min)) + min;
+    this.pregRandom = Math.floor(Math.random()*(3 - 1)) + 1 
 
     console.log('preg random: ' + this.pregRandom) 
 

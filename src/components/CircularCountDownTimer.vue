@@ -2,7 +2,7 @@
     <div
             id="wrapper"
             ref="wrapper"
-            :style="{width: '-10px', height: container_height+'px', marginBottom: '100px'}"
+            :style="{width: '10px', height: container_height+'px', marginBottom: '100px'}"
     >
         <div
                 id="container"
@@ -151,7 +151,7 @@
             },
             underneathStrokeColor: {
                 type: String,
-                default: "#eee"
+                default: "#CA2A2A"
             },
             secondsFillColor: {
                 type: String,

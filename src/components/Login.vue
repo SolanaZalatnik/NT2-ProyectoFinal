@@ -48,6 +48,7 @@ export default {
           password: this.password
         }
         this.$store.dispatch('changeUserData', obj)
+        this.$router.push('Home') 
       }
     },
     

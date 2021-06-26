@@ -3,16 +3,23 @@
     
     <header>
         <div class="logo">
-            <img src="../public/iconoHeader.png" style="width:60px; height:60px;">
+            <img src="../public/iconoHeader.png" style="width:90px; height:90px;">
         </div>
-        <div class="nav">
-            <ul class="nav-link">
-                <router-link to="/Home" tag="li" active-class="active" exact>Home</router-link>
-                <router-link v-if="userLogeado !== ''" to="/Login" tag="li" active-class="active" exact>Login</router-link>
-                <router-link to="/Ranking" tag="li" active-class="active" exact>Ranking</router-link>
-                <router-link to="/Usuario" tag="li" active-class="active" exact>Usuario</router-link>
-            </ul>
-        </div>
+        <b-row>
+          <b-col>
+            <router-link to="/Home"  active-class="active" exact>Home</router-link>
+          </b-col>
+          <b-col>
+           <router-link v-if="userLogeado !== ''" to="/Login"  active-class="active" exact>Login</router-link>
+          </b-col>
+          <b-col>
+           <router-link to="/Ranking" active-class="active" exact>Ranking</router-link>
+          </b-col>
+          <b-col>
+            <router-link to="/Usuario"  active-class="active" exact>Usuario</router-link>
+          </b-col>
+        </b-row>
+        
     </header>
 
     <router-view></router-view>

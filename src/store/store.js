@@ -8,7 +8,8 @@ export default new Vuex.Store({
     msgHome: 'Home',
     username: '',
     password: '',
-    categoria: ''
+    categoriaId: '',
+    
   },
   mutations: {
     changeUserData (state, userObject) {
@@ -18,16 +19,22 @@ export default new Vuex.Store({
       console.log(this.state.username)
       console.log(state.password)
     },
+    categoriaSeleccionada(state, cate){
+      state.categoriaId = cate['cat']
+    },
 
   },
   actions: {
-    categoriaSeleccionada(state, cat){
-      state.categoria = cat['ca']
-    },
+    
     getUsuario(){
       alert(this.state.username)
       return this.state.username
     },
+    getCategoriaId(){
+       console.log("categoria seleccionada: "+ this.state.categoriaId)
+      return this.state.categoriaId
+      
+    }
   },
   modules: {
   },

@@ -3,7 +3,7 @@
     <h1>Seleccione la categoría</h1>
     <div>
       <b-dropdown text="Seleccione categoría">
-        <b-dropdown-item @click="empezarJuego(categoria.name)" v-for="categoria in categorias" :key="categoria.id">{{categoria.name}}</b-dropdown-item>
+        <b-dropdown-item @click="empezarJuego(categoria.id)" v-for="categoria in categorias" :key="categoria.id">{{categoria.name}}</b-dropdown-item>
       </b-dropdown>
     </div>
   </div>
@@ -23,8 +23,8 @@ export default {
   methods:{
     empezarJuego(categoria){
       //const ruta = '/juego/' + categoria
-      const cat = {ca: categoria}
-      this.$store.dispatch('categoriaSeleccionada', cat)
+      const cate =  {cat:categoria}
+      this.$store.commit('categoriaSeleccionada', cate)
       const ruta = '/juego2'
       this.$router.push(ruta)
     }

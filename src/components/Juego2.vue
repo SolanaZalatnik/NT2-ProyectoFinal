@@ -22,12 +22,14 @@
     >
       <div class="row mx-auto p-2">
         <button 
+        id="btn1"
         style="margin-right: 30px" 
         class="btn btn-dark"
         @click="validarRespuesta('1')">
           {{ this.preguntaSeleccionada.respuesta1 }}
         </button>
         <button 
+        id="btn2"
         type="button"
         class="btn btn-dark"
          @click="validarRespuesta('2')">
@@ -37,6 +39,7 @@
       <br />
       <div class="row mx-auto p-2">
         <button
+          id="btn3"
           type="button"
           style="margin-right: 30px"
           class="btn btn-dark"
@@ -45,6 +48,7 @@
           {{ this.preguntaSeleccionada.respuesta3 }}
         </button>
         <button
+          id="btn4"
           type="button"
           class="btn btn-dark"
           @click="validarRespuesta('4')"
@@ -77,7 +81,8 @@ export default {
       isClicked: "btn btn-success",
       preguntaDeCategoriaSeleccionada: [],
       clicked: false,
-      
+      cantCorrectas: 0,
+      cantIncorrectas: 0
     };
   },
   methods: {
@@ -91,6 +96,10 @@ export default {
       this.$refs.countDown.updateTime(-10);
     },
     finished: () => {
+      document.getElementById('btn1').disabled = true
+      document.getElementById('btn2').disabled = true
+      document.getElementById('btn3').disabled = true
+      document.getElementById('btn4').disabled = true
       setTimeout(function () {
         alert("termino el tiempo");
       }, 1000);
@@ -99,15 +108,24 @@ export default {
       console.log(status);
     },
     validarRespuesta(respuesta) {
+      this.deshabilitarBotones()
       if (this.preguntaSeleccionada.respuestaCorrecta == respuesta) {
         /* aca deberia validar la respuesta sea correcta o no 
       y deberia mostrar la siguiente pregunta actualizando la pagina*/
-        alert("correcta");
+        this.cantCorrectas++
+        alert("Correcta");
       } else {
-        alert("incorrecta");
+        this.cantIncorrectas++
+        alert("Incorrecta");
       }
-     
     },
+    deshabilitarBotones(){
+      console.log('entro a deshabilitar')
+      document.getElementById('btn1').disabled = true
+      document.getElementById('btn2').disabled = true
+      document.getElementById('btn3').disabled = true
+      document.getElementById('btn4').disabled = true
+    }
   },
   mounted() {
     setTimeout(

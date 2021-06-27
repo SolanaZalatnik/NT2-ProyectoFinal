@@ -25,7 +25,9 @@ export default new Vuex.Store({
 
   },
   actions: {
-    
+    /* categoriaSeleccionada( cate){
+      this.state.categoriaId = cate['cat']
+    }, */
     getUsuario(){
       alert(this.state.username)
       return this.state.username

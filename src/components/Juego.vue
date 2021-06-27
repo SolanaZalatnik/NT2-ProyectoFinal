@@ -25,7 +25,8 @@ export default {
       //const ruta = '/juego/' + categoria
       if(this.hayUsuario()){
       const cate =  {cat:categoria}
-      this.$store.commit('categoriaSeleccionada', cate)
+      //this.$store.commit('categoriaSeleccionada', cate)
+     this.$store.dispatch('categoriaSeleccionada', cate)
       const ruta = '/juego2'
       this.$router.push(ruta)
       }

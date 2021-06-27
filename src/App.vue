@@ -32,7 +32,7 @@ export default {
   name: "App",
   data() {
     return {
-      userLogeado: this.$store.dispatch('getUsuario')
+     // userLogeado: this.$store.dispatch('getUsuario')
     }
   },
   components:{

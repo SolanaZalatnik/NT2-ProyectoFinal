@@ -22,7 +22,6 @@ export default {
   },
   methods:{
     empezarJuego(categoria){
-      //const ruta = '/juego/' + categoria
       if(this.hayUsuario()){
       const cate =  {cat:categoria}
       //this.$store.commit('categoriaSeleccionada', cate)

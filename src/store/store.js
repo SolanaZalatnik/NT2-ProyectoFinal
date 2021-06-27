@@ -24,10 +24,13 @@ export default new Vuex.Store({
     },
 
   },
-  actions: {
-    /* categoriaSeleccionada( cate){
-      this.state.categoriaId = cate['cat']
-    }, */
+  actions: { 
+    async categoriaSeleccionada({ commit }, cate) {
+      return Promise.resolve(commit("categoriaSeleccionada", cate));
+    },
+    async changeUserData({ commit }, userObject) {
+      return Promise.resolve(commit("changeUserData", userObject));
+    },
     getUsuario(){
       alert(this.state.username)
       return this.state.username

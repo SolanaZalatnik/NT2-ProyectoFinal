@@ -30,14 +30,20 @@ export default new Vuex.Store({
       alert(this.state.username)
       return this.state.username
     },
-    getCategoriaId(){
-       console.log("categoria seleccionada: "+ this.state.categoriaId)
-      return this.state.categoriaId
-      
-    }
+    
   },
   modules: {
   },
   getters: {
+    obtenerCategoriaId: function (state) {
+      return state.categoriaId;
+  },
+  hayUsuario: function (state) {
+    if(state.username==''){
+      return false
+    }else{
+      return true
+    }
+},
   }
 })

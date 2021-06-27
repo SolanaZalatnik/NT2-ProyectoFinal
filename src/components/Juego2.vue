@@ -64,6 +64,7 @@
 import axios from "axios";
 import CircularCountDownTimer from "./CircularCountDownTimer";
 
+
 export default {
   components: {
     CircularCountDownTimer,
@@ -82,7 +83,8 @@ export default {
       preguntaDeCategoriaSeleccionada: [],
       clicked: false,
       cantCorrectas: 0,
-      cantIncorrectas: 0
+      cantIncorrectas: 0,
+      id:''
     };
   },
   methods: {
@@ -119,14 +121,21 @@ export default {
         alert("Incorrecta");
       }
     },
+    
     deshabilitarBotones(){
       console.log('entro a deshabilitar')
       document.getElementById('btn1').disabled = true
       document.getElementById('btn2').disabled = true
       document.getElementById('btn3').disabled = true
       document.getElementById('btn4').disabled = true
+    },
+    obtenerCategoriaId(){
+      return this.$store.getters.obtenerCategoriaId
     }
   },
+  
+ 
+  
   mounted() {
     setTimeout(
       function () {
@@ -137,7 +146,8 @@ export default {
   },
   created: async function () {
     this.preguntaDeCategoriaSeleccionada = [];
-    this.categoriaSeleccionada =this.$store.dispatch("getCategoriaId" ); /* no puedo asignarle el valor del 
+    
+    this.categoriaSeleccionada =this.obtenerCategoriaId() /* no puedo asignarle el valor del 
     id de la categoria al atributo */
     
     try {
@@ -146,7 +156,7 @@ export default {
       let arrayPreg = preg.data;
 
       for (let i = 0; i < 10; i++) {
-        if ("2" == arrayPreg[i].categoria) {
+        if (this.categoriaSeleccionada == arrayPreg[i].categoria) {
           /* Aca no funciona por que categoriaSeleccionada
          es igual a undefind, cunado lo pruebo pasandole algun valor funciona bien*/
           this.preguntaDeCategoriaSeleccionada.push(i);

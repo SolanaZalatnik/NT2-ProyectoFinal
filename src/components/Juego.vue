@@ -23,10 +23,20 @@ export default {
   methods:{
     empezarJuego(categoria){
       //const ruta = '/juego/' + categoria
+      if(this.hayUsuario()){
       const cate =  {cat:categoria}
       this.$store.commit('categoriaSeleccionada', cate)
       const ruta = '/juego2'
       this.$router.push(ruta)
+      }
+      else{
+        alert("Debe ingresar un usuario")
+        const ruta = '/Login'
+      this.$router.push(ruta)
+      }
+    },
+    hayUsuario(){
+      return this.$store.getters.hayUsuario
     }
   },
   created: async function() {

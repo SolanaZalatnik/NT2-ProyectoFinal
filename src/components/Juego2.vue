@@ -187,9 +187,10 @@ export default {
   },
   created: async function () { 
     this.categoriaSeleccionada = this.obtenerCategoriaId()
-    
+    console.log('cat: ' + this.categoriaSeleccionada)
+    console.log('url: '+ this.url + '?categoria' + this.categoriaSeleccionada)
     try{
-      this.preguntas = await axios.get(this.url + '?categoria' + this.categoriaSeleccionada);
+      this.preguntas = await axios.get(this.url + '?categoria=' + this.categoriaSeleccionada);
       this.preguntaSeleccionada = this.preguntas.data[this.contPreguntas - 1]
     }catch(error){
       console.log(error)

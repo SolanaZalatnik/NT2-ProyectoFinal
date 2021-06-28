@@ -14,26 +14,24 @@
 
 <script>
 import axios from 'axios'
-//import store from '../store/store.js'
 
 export default {
   data () {
     return {
       nombre: null,
-      password: null
+      password: null,
+      points: 0
     }
   },
   methods: {
     async submitForm() {
-
       let users = await axios.get('https://60b56f2efe923b0017c840c7.mockapi.io/usuarios')
       let arrayUsers = users.data
 
       let i = 0
       let found = false
       while(i < arrayUsers.length && !found) {
-        if(this.nombre == arrayUsers[i].name && 
-          this.password == arrayUsers[i].pass) {
+        if(this.nombre == arrayUsers[i].name && this.password == arrayUsers[i].pass) {
           alert('¡Datos verificados correctamente! Bienvenido ' + this.nombre)
           found = true
         } else {
@@ -44,10 +42,11 @@ export default {
         alert('Datos invalidos. Intente nuevamente')
       } else {
         const obj = {
+          id:arrayUsers[i].id,
           nombre: this.nombre,
-          password: this.password
+          password: this.password,
+          points:arrayUsers[i].points
         }
-        //this.$store.dispatch('changeUserData', obj)
         this.$store.dispatch('changeUserData', obj)
         this.$router.push('Home') 
       }

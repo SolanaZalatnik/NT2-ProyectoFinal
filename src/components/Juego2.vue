@@ -1,10 +1,12 @@
 <template>
   <div>
     <circular-count-down-timer
-      :initial-value="10"
-      @finish="finished"
-      @update="updated"
+        :initial-value="this.time"
+        @finish="finished"
+        @update="updated"
+        ref="countdown"
     ></circular-count-down-timer>
+    <br>
     <h1 style="color: black">Pregunta {{ contPreguntas }}</h1>
     <br />
     <div
@@ -57,12 +59,18 @@
         </button>
       </div>
     </div>
+    <div>
+      <br>
+      <button id="btnSiguiente" type="button" disabled class="btn btn-dark" @click="traerSiguiente()">
+          Siguiente
+      </button>
+    </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import CircularCountDownTimer from "./CircularCountDownTimer";
+import CircularCountDownTimer from "./CircularCountDownTimer.vue";
 
 
 export default {
@@ -72,38 +80,49 @@ export default {
   data() {
     return {
       url: "https://60b95da180400f00177b66e2.mockapi.io/preguntas",
+      urlUsuarios:'https://60b56f2efe923b0017c840c7.mockapi.io/usuarios',
       preguntas: [],
-      pregRandom: [],
       preguntaSeleccionada: [],
       contPreguntas: 1,
       categoriaSeleccionada: "",
       some_variable: false,
-      notSelected: "btn btn-dark",
-      isClicked: "btn btn-success",
-      preguntaDeCategoriaSeleccionada: [],
-      clicked: false,
       cantCorrectas: 0,
       cantIncorrectas: 0,
-      id:''
+      time: 10,
+      cantPreguntas: 5
     };
   },
   methods: {
-    changeColor() {
-      this.notSelected = this.isClicked;
+    traerSiguiente(){
+      //setear el time del countdown en 10 de nuevo
+      if(this.contPreguntas >= this.cantPreguntas){
+        alert(' Finalizo el juego\n El total de puntos de la partida es: ' + (this.cantCorrectas - this.cantIncorrectas))
+        let ruta = '/ranking/'
+        this.$router.push(ruta)
+      }else{
+        this.incrementar()
+        this.preguntaSeleccionada = this.preguntas.data[this.contPreguntas - 1]
+        document.getElementById('btn1').disabled = false
+        document.getElementById('btn2').disabled = false
+        document.getElementById('btn3').disabled = false
+        document.getElementById('btn4').disabled = false
+        document.getElementById('btnSiguiente').disabled = true
+      }
     },
     incrementar() {
       this.contPreguntas++;
     },
-    updateTime() {
-      this.$refs.countDown.updateTime(-10);
+    updateCountdown: () => {
+      this.$refs.countdown.updateTime(10)
     },
-    finished: () => {
+     finished: () => {
       document.getElementById('btn1').disabled = true
       document.getElementById('btn2').disabled = true
       document.getElementById('btn3').disabled = true
       document.getElementById('btn4').disabled = true
+      document.getElementById('btnSiguiente').disabled = true
       setTimeout(function () {
-        alert("termino el tiempo");
+        alert(' Termino el tiempo')
       }, 1000);
     },
     updated: (status) => {
@@ -112,18 +131,17 @@ export default {
     validarRespuesta(respuesta) {
       this.deshabilitarBotones()
       if (this.preguntaSeleccionada.respuestaCorrecta == respuesta) {
-        /* aca deberia validar la respuesta sea correcta o no 
-      y deberia mostrar la siguiente pregunta actualizando la pagina*/
         this.cantCorrectas++
-        alert("Correcta");
+        this.respuestaCorrecta()
+        alert(" Correcta!\n Suma un punto\n Tus puntos: " + this.getPuntos());
       } else {
         this.cantIncorrectas++
-        alert("Incorrecta");
+        this.respuestaIncorrecta()
+        alert(" Incorrecta :(\n Resta un punto\n Tus puntos: " + this.getPuntos());
       }
+      document.getElementById('btnSiguiente').disabled = false
     },
-    
     deshabilitarBotones(){
-      console.log('entro a deshabilitar')
       document.getElementById('btn1').disabled = true
       document.getElementById('btn2').disabled = true
       document.getElementById('btn3').disabled = true
@@ -131,54 +149,51 @@ export default {
     },
     obtenerCategoriaId(){
       return this.$store.getters.obtenerCategoriaId
-    }
+    },
+       obtenerUsuarioId(){
+       return this.$store.getters.obtenerUsuarioId
+    },
+    async respuestaCorrecta(){
+      let post = {        
+        points:this.sumarPuntos()
+      }
+      const respuesta = await axios.put(this.urlUsuarios + "/" + this.obtenerUsuarioId(), post)
+      console.log(respuesta)
+    },
+     async respuestaIncorrecta(){    
+      let post = {points:this.restarPuntos()}
+      const respuesta = await axios.put(this.urlUsuarios + "/" + this.obtenerUsuarioId(), post)
+      console.log(respuesta)
+    },
+      getPuntos(){
+      return this.$store.getters.getPuntos
+    },
+    sumarPuntos(){
+      this.$store.dispatch('sumarPuntos', 1)
+      return this.getPuntos()
+    },
+    restarPuntos(){
+       this.$store.dispatch('restarPuntos', 1)
+      return this.getPuntos()
+    },
   },
-  
- 
-  
   mounted() {
     setTimeout(
-      function () {
+     function() {
         this.some_variable = true;
       }.bind(this),
       30000
     );
   },
-  created: async function () {
-    this.preguntaDeCategoriaSeleccionada = [];
+  created: async function () { 
+    this.categoriaSeleccionada = this.obtenerCategoriaId()
     
-    this.categoriaSeleccionada =this.obtenerCategoriaId() /* no puedo asignarle el valor del 
-    id de la categoria al atributo */
-    
-    try {
-      //tiene que traer las pregs de la categoria seleccionada
-      let preg = await axios.get(this.url);
-      let arrayPreg = preg.data;
-
-      for (let i = 0; i < 10; i++) {
-        if (this.categoriaSeleccionada == arrayPreg[i].categoria) {
-          /* Aca no funciona por que categoriaSeleccionada
-         es igual a undefind, cunado lo pruebo pasandole algun valor funciona bien*/
-          this.preguntaDeCategoriaSeleccionada.push(i);
-        }
-      }
-    } catch (error) {
-      console.log(error);
+    try{
+      this.preguntas = await axios.get(this.url + '?categoria' + this.categoriaSeleccionada);
+      this.preguntaSeleccionada = this.preguntas.data[this.contPreguntas - 1]
+    }catch(error){
+      console.log(error)
     }
-
-    this.pregActual = this.preguntaDeCategoriaSeleccionada.pop() + 1;
-    console.log("preg actual: " + this.pregActual);
-
-    try {
-      const response = (this.preguntas = await axios.get(
-        this.url + "/" + this.pregActual
-      ));
-      this.preguntaSeleccionada = response.data;
-    } catch (error) {
-      console.log(error);
-    }
-    console.log("ruta: " + this.url + "/" + this.pregActual.id);
-    console.log("preg sel: " + this.preguntaSeleccionada.pregunta)
   },
 };
 </script>

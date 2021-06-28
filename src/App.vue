@@ -10,7 +10,7 @@
             <router-link to="/Home"  active-class="active" exact>Home</router-link>
           </b-col>
           <b-col>
-           <router-link v-if="userLogeado !== ''" to="/Login"  active-class="active" exact>Login</router-link>
+           <router-link to="/Login"  active-class="active" exact>Login</router-link>
           </b-col>
           <b-col>
            <router-link to="/Ranking" active-class="active" exact>Ranking</router-link>
@@ -19,7 +19,6 @@
             <router-link to="/Usuario"  active-class="active" exact>Usuario</router-link>
           </b-col>
         </b-row>
-        
     </header>
 
     <router-view></router-view>
@@ -27,16 +26,14 @@
 </template>
 
 <script>
-//import HelloWorld from './components/HelloWorld'
+
 export default {
   name: "App",
   data() {
     return {
-     // userLogeado: this.$store.dispatch('getUsuario')
     }
   },
   components:{
-    //HelloWorld
   }
 };
 </script>

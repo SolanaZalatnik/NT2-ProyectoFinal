@@ -23,11 +23,10 @@ export default {
   methods:{
     empezarJuego(categoria){
       if(this.hayUsuario()){
-      const cate =  {cat:categoria}
-      //this.$store.commit('categoriaSeleccionada', cate)
-     this.$store.dispatch('categoriaSeleccionada', cate)
-      const ruta = '/juego2'
-      this.$router.push(ruta)
+        const cate =  {cat: categoria}
+        this.$store.dispatch('categoriaSeleccionada', cate)
+        const ruta = '/juego2'
+        this.$router.push(ruta)
       }
       else{
         alert("Debe ingresar un usuario")

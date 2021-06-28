@@ -6,23 +6,28 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     msgHome: 'Home',
+    usuarioId:'',
     username: '',
     password: '',
     categoriaId: '',
-    
+    puntos: 0
   },
   mutations: {
     changeUserData (state, userObject) {
+      state.usuarioId = userObject['id']
       state.username = userObject['nombre']
       state.password = userObject['password']
-
-      console.log(this.state.username)
-      console.log(state.password)
+      state.puntos = userObject['points']
     },
     categoriaSeleccionada(state, cate){
       state.categoriaId = cate['cat']
     },
-
+    sumarPuntos(state,suma){
+      state.puntos = state.puntos + suma
+    },
+    restarPuntos(state,resta){
+      state.puntos = state.puntos - resta
+    }
   },
   actions: { 
     async categoriaSeleccionada({ commit }, cate) {
@@ -31,11 +36,12 @@ export default new Vuex.Store({
     async changeUserData({ commit }, userObject) {
       return Promise.resolve(commit("changeUserData", userObject));
     },
-    getUsuario(){
-      alert(this.state.username)
-      return this.state.username
+    async sumarPuntos({ commit }, suma) {
+      return Promise.resolve(commit("sumarPuntos", suma));
     },
-    
+    async restarPuntos({ commit }, resta) {
+      return Promise.resolve(commit("restarPuntos", resta));
+    },
   },
   modules: {
   },
@@ -44,11 +50,20 @@ export default new Vuex.Store({
       return state.categoriaId;
   },
   hayUsuario: function (state) {
-    if(state.username==''){
+    if(state.username == ''){
       return false
     }else{
       return true
     }
-},
-  }
+  },
+   obtenerUsuarioId: function (state) {
+    return state.usuarioId;
+  },
+  getPuntos:function(state){
+    return state.puntos;
+  },
+  getUsuario:function(state){
+    return state.username;
+  },  
+}
 })

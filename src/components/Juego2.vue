@@ -88,7 +88,7 @@ export default {
       some_variable: false,
       cantCorrectas: 0,
       cantIncorrectas: 0,
-      time: 10,
+      time: 60,
       cantPreguntas: 5
     };
   },

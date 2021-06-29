@@ -20,12 +20,20 @@
           </b-col>
         </b-row>
     </header>
-
-    <router-view></router-view>
+    <b-row>
+      <b-col>
+        <ranking></ranking>
+      </b-col>
+      <b-col>
+        <router-view></router-view>
+      </b-col>
+    </b-row>
   </div>
 </template>
 
 <script>
+
+import ranking from './components/Ranking.vue'
 
 export default {
   name: "App",
@@ -34,6 +42,7 @@ export default {
     }
   },
   components:{
+    ranking
   }
 };
 </script>
